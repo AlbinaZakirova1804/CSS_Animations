@@ -1,3 +1,4 @@
+/*----------------General-----------------------*/
 .flashcard {
   margin: 3rem auto 6rem;
   position: relative;
@@ -5,7 +6,7 @@
   flex-direction: column-reverse;
 }
 .flashcard .btn {
-  text-align: center;
+   text-align: center;
   width: 350px;
   margin: 0 auto;
   padding: 1rem 0;
@@ -31,8 +32,10 @@
   text-align: center;
   width: 350px;
   height: 350px;
+  transform-style: preserve-2d;
+  transition: transform 4s;
 }
-.flashcard .card__front {
+.flashcard .front {
   position: absolute;
   top: 0;
   left: 0;
@@ -44,14 +47,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
-.flashcard .card__front h1 {
+.flashcard .front h1 {
   padding: 3rem;
-  color: white;
+  color: rgb(255, 254, 254);
   font-size: 2.5rem;
   line-height: 1.5;
 }
-.flashcard .card__back {
+.flashcard .back {
   position: absolute;
   top: 0;
   left: 0;
@@ -65,7 +69,7 @@
   justify-content: center;
   align-items: center;
 }
-.flashcard .card__back p {
+.flashcard .back p {
   padding: 3rem;
   line-height: 1.2;
   font-size: 1.2rem;
@@ -76,4 +80,59 @@ body {
   background-color: #F4FCF8;
 }
 
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+/*-----------------End------------------------------*/
+
+/*1-------------Animation for card # ONE----------1*/
+/*-------------------------------------------------*/
+/* flip the card when button is activated */
+.one .btn:active +.card {
+		transform: rotateY(180deg);
+    transition: 0.5s;
+	}
+
+/* flip speed goes here */
+.one .card{
+  transition: 0.7s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* front pane, placed above back */
+.one .card .front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+.one .card .back {
+  /* back, initially hidden pane */
+	transform: rotateY(180deg);
+}
+/*----------------------End------------------------*/
+
+/*2-------------Animation for card # TWO----------2*/
+/*-------------------------------------------------*/
+
+/**/
+.two .btn:active +.card .front{
+  transform:scale(0);
+  opacity: 0;
+  transition: 0.5s;
+  }
+
+/*------------------End-----------------------------*/
+
+/*3-------------Animation for card # TREE----------3*/
+/*--------------------------------------------------*/
+
+/* flip the card when button is activated */
+.three .btn:active +.card .front {
+		transform: translate(350px, 0);
+    transition: transform 0.5s  ease-in;
+	}
 /*# sourceMappingURL=style.css.map */
