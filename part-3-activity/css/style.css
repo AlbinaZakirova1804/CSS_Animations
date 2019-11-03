@@ -1,3 +1,4 @@
+/*-----------------------------General------------------------------*/
 .balloon-container {
   width: 120px;
   height: 175px;
@@ -12,6 +13,12 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  /*------------------------animation--------------------------*/
+  animation: fly 20s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+
+
 }
 
 .car {
@@ -25,6 +32,10 @@
   background-repeat: no-repeat;
   background-size: contain;
   z-index: 99;
+  /*-------------------animation------------------------------*/
+  animation-timing-function: ease-in-out;
+  animation: move 20s;
+  animation-iteration-count: 1;
 }
 .car .wheel {
   height: 32px;
@@ -35,6 +46,8 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  /*-----------------------animation-----------------------------*/
+  animation: spin 4s linear 0s 1.35, continue 4s linear 6.165s 4;
 }
 .car .wheel.back {
   left: 28px;
@@ -167,5 +180,73 @@ body {
   overflow: hidden;
   position: relative;
 }
-
+/*-------------------------------End------------------------------------*/
 /*# sourceMappingURL=style.css.map */
+
+/*--------------------------make wheels spin-----------------------------*/
+
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes continue {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+
+/*------------------------------end--------------------------------------*/
+/*------------------------make car move----------------------------------*/
+
+@keyframes move {
+  0% {
+    transform : translateX(0em)
+  }
+
+  
+
+  30% {
+    transform : translateX(16em)
+  }
+  
+
+  100% {
+    transform : translateX(95em)
+  }
+}
+
+
+@keyframes fly {
+  0% {
+    transform: translate(0em, 0em);
+  }
+
+  30%{
+    transform: translate(-8em, -5em);
+   }
+
+  65% {
+    transform: translate(-20em, -2em);
+  }
+
+  80% {
+    transform: translate(-25em, -1em);
+  }
+
+  100% {
+    transform: translate(-35em, 0em);
+  }
+}
+/*--------------------------------END----------------------------------------*/
